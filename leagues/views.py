@@ -5,10 +5,10 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'Every player with last name "Cooper"',
+		'q_title': 'Every player with first name "Joshua"',
 		# "leagues": League.objects.all(),
 		# "teams": Team.objects.all(),
-		"players": Player.objects.filter(last_name="Cooper"),
+		"players": Player.objects.filter(first_name="Joshua"),
 	}
 	return render(request, "leagues/index.html", context)
 
