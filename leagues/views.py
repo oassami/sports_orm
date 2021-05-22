@@ -5,11 +5,10 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'All teams, ordered by team name in reverse alphabetical order',
+		'q_title': 'Every player with last name "Cooper"',
 		# "leagues": League.objects.all(),
 		# "teams": Team.objects.all(),
-		"teams": Team.objects.all().order_by('-team_name'),
-		# "players": Player.objects.all(),
+		"players": Player.objects.filter(last_name="Cooper"),
 	}
 	return render(request, "leagues/index.html", context)
 
