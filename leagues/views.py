@@ -6,10 +6,10 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'All teams in the Atlantic Soccer Conference',
+		'q_title': 'All (current) players on the Boston Penguins',
 		# "leagues": League.objects.all(),
-		"teams": Team.objects.filter(league=League.objects.get(name="Atlantic Soccer Conference")),
-		# "players": Player.objects.filter(Q(first_name="Alexander") | Q(first_name="Wyatt")),
+		# "teams": Team.objects.filter(league=League.objects.get(name="Atlantic Soccer Conference")),
+		"players": Player.objects.filter(curr_team=Team.objects.get(team_name="Penguins", location="Boston")),
 	}
 	return render(request, "leagues/index.html", context)
 
