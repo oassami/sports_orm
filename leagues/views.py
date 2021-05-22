@@ -5,10 +5,10 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'All teams whose names begin with "T"',
+		'q_title': 'All teams, ordered alphabetically by location',
 		# "leagues": League.objects.all(),
 		# "teams": Team.objects.all(),
-		"teams": Team.objects.filter(team_name__startswith="T"),
+		"teams": Team.objects.all().order_by('location'),
 		# "players": Player.objects.all(),
 	}
 	return render(request, "leagues/index.html", context)
