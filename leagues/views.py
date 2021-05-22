@@ -5,9 +5,9 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': "All leagues that call themselves 'conferences'",
+		'q_title': "All leagues in the Atlantic region",
 		# "leagues": League.objects.all(),
-		'leagues': League.objects.filter(name__contains='conference'),
+		'leagues': League.objects.filter(name__contains='Atlantic'),
 		# "teams": Team.objects.all(),
 		# "players": Player.objects.all(),
 	}
