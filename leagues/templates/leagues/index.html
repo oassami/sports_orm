@@ -15,7 +15,7 @@
 			</ol>
 		{% endif %}
 		{% if teams %}
-			<h1>Teams</h1>
+			<h1>Query: {{q_title}}</h1>
 			<ol>
 				{% for team in teams %}
 					<li>{{team.location}} {{team.team_name}}</li>
@@ -25,7 +25,7 @@
 			</ol>
 		{% endif %}
 		{% if players %}
-			<h1>Players</h1>
+			<h1>Query: {{q_title}}</h1>
 			<ol>
 				{% for player in players %}
 					<li>{{player.first_name}} {{player.last_name}}</li>
