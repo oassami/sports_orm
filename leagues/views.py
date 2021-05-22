@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import League, Team, Player
+from django.db.models import Q
 
 from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'Every player with last name "Cooper" EXCEPT those with "Joshua" as the first name',
+		'q_title': 'All players with first name "Alexander" OR first name "Wyatt"',
 		# "leagues": League.objects.all(),
 		# "teams": Team.objects.all(),
-		"players": Player.objects.filter(last_name="Cooper").exclude(first_name="Joshua"),
+		"players": Player.objects.filter(Q(first_name="Alexander") | Q(first_name="Wyatt")),
 	}
 	return render(request, "leagues/index.html", context)
 
