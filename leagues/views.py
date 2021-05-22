@@ -4,10 +4,13 @@ from .models import League, Team, Player
 from . import team_maker
 
 def index(request):
+	# Query 1 : All baseball leagues
 	context = {
-		"leagues": League.objects.all(),
-		"teams": Team.objects.all(),
-		"players": Player.objects.all(),
+		"q_title": "All baseball leagues",
+		# "leagues": League.objects.all(),
+		"leagues": League.objects.filter(sport__contains='Baseball'),
+		# "teams": Team.objects.all(),
+		# "players": Player.objects.all(),
 	}
 	return render(request, "leagues/index.html", context)
 
