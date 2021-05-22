@@ -4,11 +4,10 @@ from .models import League, Team, Player
 from . import team_maker
 
 def index(request):
-	# Query 1 : All womens' leagues
 	context = {
-		"q_title": "All womens' leagues",
+		"q_title": "All leagues where sport is any type of hockey",
 		# "leagues": League.objects.all(),
-		"leagues": League.objects.filter(name__contains="womens'"),
+		"leagues": League.objects.filter(sport__contains="hockey"),
 		# "teams": Team.objects.all(),
 		# "players": Player.objects.all(),
 	}
