@@ -6,10 +6,8 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'All (current) players on the Boston Penguins',
-		# "leagues": League.objects.all(),
-		# "teams": Team.objects.filter(league=League.objects.get(name="Atlantic Soccer Conference")),
-		"players": Player.objects.filter(curr_team=Team.objects.get(team_name="Penguins", location="Boston")),
+		'q_title': 'All (current) players in the International Collegiate Baseball Conference',
+		"players": Player.objects.filter(curr_team__league=League.objects.get(name="International Collegiate Baseball Conference"))
 	}
 	return render(request, "leagues/index.html", context)
 
