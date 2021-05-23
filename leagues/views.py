@@ -6,8 +6,8 @@ from . import team_maker
 
 def index(request):
 	context = {
-		'q_title': 'All (current) players in the International Collegiate Baseball Conference',
-		"players": Player.objects.filter(curr_team__league=League.objects.get(name="International Collegiate Baseball Conference"))
+		'q_title': 'All (current) players in the American Conference of Amateur Football with last name "Lopez"',
+		"players": Player.objects.filter(curr_team__league=League.objects.get(name="American Conference of Amateur Football")).filter(last_name="Lopez")
 	}
 	return render(request, "leagues/index.html", context)
 
